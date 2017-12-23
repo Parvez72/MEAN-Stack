@@ -1,0 +1,22 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+#searchInput{
+  padding: 8px 0px 8px 5px;
+  flex: 1;
+  margin: 5px 0px 5px 5px;
+  border-color: #28a745;
+  font-size: 20px;
+}
+.createContactInput{
+
+  width: 100%;
+}
+.createContactTextarea{
+  width: 100%;
+}

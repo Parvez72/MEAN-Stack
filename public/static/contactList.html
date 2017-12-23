@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="container">
+        <div class="container" ng-repeat="contact in contacts | orderBy: '+name' |filter : searchContact" >
+
+            <div class="card w-100" >
+                <div class="well-small bg-light flex-sm-row-reverse" style="">
+                    <button class="btn btn-danger float-sm-right" ng-click="deleteContact(contact._id)">X</button>
+                    <button class="btn btn-info float-sm-right" style="padding: 4px;margin-right: 2px"><i class="fa fa-edit" style="font-size:24px"></i></button>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <img src="/images/buddy.jpg" class="card-img img-thumbnail " style="margin: 5px">
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="container">
+                            <table class="table ">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Personal Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>Name </th>
+                                        <td>{{contact.name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>DoB </th>
+                                        <td>{{contact.dob}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phone </th>
+                                        <td>{{contact.phone}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>{{contact.email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Description :</th>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">{{contact.description}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
