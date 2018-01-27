@@ -1,4 +1,4 @@
-angular.module('contactList',[]).controller('contactListController',function ($scope,$http) {
+angular.module('contactList',[]).controller('contactListController',function ($scope,$http,$location,$anchorScroll) {
     $scope.includePage="/static/contactList.html";
 
 
@@ -49,5 +49,15 @@ angular.module('contactList',[]).controller('contactListController',function ($s
            callPage(1);
         });
     }
-
+    $scope.updateContactFields={};
+    $scope.editContact=function (id) {
+        $scope.editBoxShow=true;
+        console.log(id);
+        $http.put('/editContact/'+id).then(function (value) {
+           console.log(value.data);
+           $scope.updateContactFields=value.data;
+        });
+        $location.hash('updateDiv');
+        $anchorScroll();
+    }
 });

@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="container">
+        <div class="container" >
+
+            <div class="card w-100" >
+                <div class="well-small bg-light flex-sm-row-reverse" style="">
+
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <img src="/images/dummy.jpg" class="card-img img-thumbnail " style="margin: 5px">
+                        <form class="form-control form-control-lg" style="margin-left: 5px;display: flex">
+                            <label class="btn btn-warning" style="flex: 1">
+                                Upload <input type="file" hidden >
+                            </label>
+
+                        </form>
+
+
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="container">
+                            <form class="form-control form-control-lg" style="overflow: hidden">
+                                <table class="table ">
+                                    <thead>
+                                    <tr>
+                                        <th colspan="2">Personal Details</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th>Name </th>
+                                        <td><input type="text" class="createContactInput" ng-model="updateContactFields.name" style=" padding: 17px 0px 17px 4px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>DoB </th>
+                                        <td><input type="text" class="createContactInput" ng-model="updateContactFields.dob" style=" padding: 17px 0px 17px 4px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phone </th>
+                                        <td><input type="text" class="createContactInput" ng-model="updateContactFields.phone" style=" padding: 17px 0px 17px 4px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td><input type="email" class="createContactInput" ng-model="updateContactFields.email" style=" padding: 17px 0px 17px 4px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Description :</th>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><textarea required ng-model="updateContactFields.description" class="createContactTextarea form-control-lg"></textarea></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="well-small bg-light flex-sm-row-reverse" style="">
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-4"><button type="submit" class="btn btn-success" style="width: 100%" ng-click="updateContact()">Save</button></div>
+                        <div class="col-4"><button class="btn btn-danger" style="width: 100%" ng-click="callPage(1)">Cancel</button></div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

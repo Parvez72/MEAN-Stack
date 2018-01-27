@@ -1,11 +1,14 @@
 <div class="container">
     <div class="container">
+        <div class="container well">
+            <h4>Contacts</h4>
+        </div>
         <div class="container" ng-repeat="contact in contacts | orderBy: '+name' |filter : searchContact" >
 
             <div class="card w-100" >
                 <div class="well-small bg-light flex-sm-row-reverse" style="">
-                    <button class="btn btn-danger float-sm-right" ng-click="deleteContact(contact._id)">X</button>
-                    <button class="btn btn-info float-sm-right" style="padding: 4px;margin-right: 2px"><i class="fa fa-edit" style="font-size:24px"></i></button>
+                    <button class="btn btn-danger float-sm-right" data-toggle="tooltip" data-placement="top" title="Close" ng-click="deleteContact(contact._id)">X</button>
+                    <button class="btn btn-info float-sm-right" data-toggle="tooltip" data-placement="top" title="Edit" style="padding: 4px;margin-right: 2px" ng-click="editContact(contact._id)"><i class="fa fa-edit" style="font-size:24px"></i></button>
                 </div>
                 <div class="row">
                     <div class="col-sm-3">

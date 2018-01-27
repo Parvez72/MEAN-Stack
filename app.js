@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var favicon = require('serve-favicon');
 var bodyParser = require('body-parser');
 var mongojs=require('mongojs');
 var db=mongojs('first',['contactList']);
@@ -16,10 +17,9 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
@@ -29,7 +29,7 @@ app.use('/users', users);
 app.get('/getContacts',function (req,res) {
     db.contactList.find().toArray(function (err,docs) {
         if(err) throw err;
-        res.send(docs);
+        res.json(docs);
     });
 });
 
@@ -38,7 +38,7 @@ app.get('/deleteContact/:id',function (req,res) {
   var id=req.params.id;
   db.contactList.remove({_id:mongojs.ObjectId(id)},function (err,docs) {
       if(err) throw err;
-      res.send(docs);
+      res.json(docs);
   });
 });
 
@@ -47,11 +47,17 @@ app.post('/createContact',function (req,res) {
     console.log(req.body);
     db.contactList.insert(req.body,function (err,docs) {
         if(err) throw err;
-        res.send(docs);
+        res.json(docs);
     })
 
 });
-
+//update contact details
+app.put('/editContact/:id',function (req,res) {
+    var id=req.params.id;
+    db.contactList.find({_id:mongojs.ObjectId(id)},function (err,docs) {
+        res.json(docs);
+    });
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
